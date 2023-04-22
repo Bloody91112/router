@@ -17,13 +17,13 @@ class RouteConfiguration
         $this->action = $action;
     }
 
-    public function name($name): self
+    public function name(string $name): self
     {
         $this->name = $name;
         return $this;
     }
 
-    public function middleware($middleware): self
+    public function middleware(string $middleware): self
     {
         $this->middleware = $middleware;
         return $this;
