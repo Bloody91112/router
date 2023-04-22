@@ -9,5 +9,8 @@
 </head>
 <body>
 Show page
+<div>
+    <?php echo "ID - " . $post ?>
+</div>
 </body>
 </html>

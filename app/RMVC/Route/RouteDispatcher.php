@@ -83,6 +83,7 @@ class RouteDispatcher
 
     public function render(): void
     {
+
         $ClassName = $this->routeConfiguration->controller;
         $action = $this->routeConfiguration->action;
         print((new $ClassName)->$action(...$this->paramsRequestMap));
