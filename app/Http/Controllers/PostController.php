@@ -9,8 +9,9 @@ class PostController extends Controller
         var_dump('index');
     }
 
-    public function show()
+    public function show($post, $param2)
     {
-        var_dump('show');
+        var_dump($post);
+        var_dump($param2);
     }
 }

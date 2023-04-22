@@ -9,6 +9,7 @@ class RouteDispatcher
     private RouteConfiguration $routeConfiguration;
     private string $requestUri = '/';
     private array $paramsMap = [];
+    private array $paramsRequestMap = [];
 
     public function __construct(RouteConfiguration $routeConfiguration)
     {
@@ -58,7 +59,7 @@ class RouteDispatcher
             if (!isset($requestUriArray[$paramKey])) {
                 return;
             }
-
+            $this->paramsRequestMap[$param] = $requestUriArray[$paramKey];
             $requestUriArray[$paramKey] = '{.*}';
         }
 
@@ -84,7 +85,7 @@ class RouteDispatcher
     {
         $ClassName = $this->routeConfiguration->controller;
         $action = $this->routeConfiguration->action;
-        print((new $ClassName)->$action());
+        print((new $ClassName)->$action(...$this->paramsRequestMap));
         die();
 //        echo '<pre>';
 //        var_dump((new $ClassName)->$action());
