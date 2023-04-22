@@ -2,6 +2,7 @@
 
 namespace App\RMVC;
 
+use App\Http\Controllers\PostController;
 use App\RMVC\Route\Route;
 use App\RMVC\Route\RouteDispatcher;
 
