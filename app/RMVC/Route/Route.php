@@ -4,9 +4,10 @@ namespace App\RMVC\Route;
 
 class Route
 {
+    /** Гет роуты */
     private static array $routesGet = [];
+    /** Пост роуты */
     private static array $routesPost = [];
-
 
     public static function getRoutesPost(): array
     {
@@ -18,6 +19,7 @@ class Route
         return self::$routesGet;
     }
 
+    /** Создаем конфигурацию, записываем ее в соответсвующий массив */
     public static function get(string $route, array $controller): RouteConfiguration
     {
         $routeConfiguration = new RouteConfiguration($route, $controller[0], $controller[1]);
@@ -26,6 +28,7 @@ class Route
         return $routeConfiguration;
     }
 
+    /** Создаем конфигурацию, записываем ее в соответсвующий массив */
     public static function post(string $route, array $controller): RouteConfiguration
     {
         $routeConfiguration = new RouteConfiguration($route, $controller[0], $controller[1]);
@@ -34,6 +37,7 @@ class Route
         return $routeConfiguration;
     }
 
+    /** Метод для редиректа */
     public static function redirect($url)
     {
         header('Location: ' . $url);

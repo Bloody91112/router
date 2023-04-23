@@ -2,18 +2,17 @@
 
 namespace App\RMVC;
 
-use App\Http\Controllers\PostController;
 use App\RMVC\Route\Route;
 use App\RMVC\Route\RouteDispatcher;
+use JetBrains\PhpStorm\NoReturn;
 
 class App
 {
-    public static function run(): void
+    #[NoReturn] public static function run(): void
     {
+        $methodName = 'getRoutes' . ucfirst(strtolower($_SERVER['REQUEST_METHOD']));
 
-        $requestMethod = ucfirst(strtolower($_SERVER['REQUEST_METHOD']));
-        $methodName = 'getRoutes' . $requestMethod;
-
+        /** Перебор всех роутов (routes/web.php) с текущим методом запроса */
         foreach (Route::$methodName() as $routeConfiguration) {
             $routeDispatcher = new RouteDispatcher($routeConfiguration);
             $routeDispatcher->process();

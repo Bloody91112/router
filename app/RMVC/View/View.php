@@ -4,9 +4,12 @@ namespace App\RMVC\View;
 
 class View
 {
+    /** Путь view */
     private static string $path;
+    /** Переменные для view */
     private static array $data;
 
+    /** Записываем переменные, преобразуя путь в нужный вид*/
     public static function view(string $str, array $data = []): string
     {
         self::$data = $data;
@@ -16,6 +19,7 @@ class View
 
     }
 
+    /** "Расскрываем" массив с данными, "берем" шаблон */
     private static function getContent(): string
     {
         extract(self::$data);
