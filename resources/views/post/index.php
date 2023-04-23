@@ -8,10 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-Index page
-
+<h1>Post index page</h1>
 <div>
-    Store
+    Make post request
     <div>
         <form action="/posts" method="post">
             <input type="text" placeholder="value" name="title">
@@ -20,7 +19,7 @@ Index page
         <div>
             <?php
             if (isset($_SESSION['message'])){
-                echo  'value is ' . $_SESSION['message'];
+                echo '<b>Previous request</b> - <b> ' . $_SESSION['message'] . '</b>';
             }
             ?>
         </div>

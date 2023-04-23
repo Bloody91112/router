@@ -8,9 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-Show page
+<h1>Post Show page</h1>
 <div>
-    <?php echo "ID - " . $post ?>
+    <?php if (isset($post)) {
+        echo "Post Id - " . $post;
+    } ?>
 </div>
 </body>
 </html>

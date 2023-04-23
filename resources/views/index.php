@@ -8,6 +8,26 @@
     <title>Document</title>
 </head>
 <body>
-index page
+<h1>Index page</h1>
+<ul>
+    <?php
+    if (isset($routes)){
+        echo "<h3>Available routes</h3>";
+        foreach ($routes as $route){
+            echo "<li>
+                <ul>
+                    <li><p>Route - <b>$route->route</b></p></li>
+                    <li>Method - <b>$route->action</b></li>
+                    <li>Controller - <b>$route->controller</b></li>
+                    <li>Name - <b>$route->name</b></li>
+                    <li>Middleware - <b>$route->middleware</b></li>
+                </ul>
+                <hr>
+                </li>";
+        }
+    }
+    ?>
+</ul>
+
 </body>
 </html>
