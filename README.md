@@ -1,1 +1,1 @@
-Router like laravel router
+Router like in laravel
